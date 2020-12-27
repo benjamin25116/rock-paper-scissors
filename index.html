@@ -9,7 +9,75 @@
 
 <body>
 
+	<script>
+		function computerPlay() {
+			/*
+			returns rock, paper or scissors randomly for the computer
+			*/
+			let hand = Math.floor(Math.random() * 3)
+			switch (hand) {
+				case 0: return "rock"
+					break;
+				case 1: return "paper"
+					break;
+				case 2: return "scissors"
+					break;
+			}
+		}
 
+
+		let playerSelection = "rock"
+		// let computerSelection = "rock"
+		let computerSelection = "paper"
+		// let computerSelection = "scissors"
+
+		function playRound(playerSelection, computerSelection) {
+			/*
+			Plays a round of rock paper scissors. 
+			@param: "playerSelection" and "computerSeletion" 
+			@return: a string that declares the winner
+			*/
+
+			const win = "You won!"
+			const lose = "You lose!"
+
+			if (playerSelection === computerSelection) {
+				return "It's a draw!";
+			}
+
+			switch (playerSelection) {
+				case "rock":
+					if (computerSelection === "scissors") {
+						return win
+					}
+					return lose
+
+				case "paper":
+					if (computerSelection === "rock") {
+						return win
+					}
+					return lose
+
+				case "scissors":
+					if (computerSelection === "paper") {
+						return win
+					}
+					return lose
+			}
+
+		}
+
+		// let round = playRound(playerSelection, computerSelection)
+		// console.log(round)
+
+		function game() {
+			// calls the playRound function five times (to play the game 5 times),
+			// keeps track of the scores, and declares the winner/loser at the end.
+			// use console.log to display the results.
+			// use prompt() to get user input.
+			// write helper functions as necessary
+		}
+	</script>
 </body>
 
 </html>
