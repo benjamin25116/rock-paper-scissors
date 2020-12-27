@@ -25,12 +25,6 @@
 			}
 		}
 
-
-		let playerSelection = "rock"
-		// let computerSelection = "rock"
-		let computerSelection = "paper"
-		// let computerSelection = "scissors"
-
 		function playRound(playerSelection, computerSelection) {
 			/*
 			Plays a round of rock paper scissors. 
@@ -67,16 +61,56 @@
 
 		}
 
-		// let round = playRound(playerSelection, computerSelection)
-		// console.log(round)
+		function isValidMove(move) {
+			if (move === "rock" || move === "paper" || move === "scissors") {
+				return true
+			} return false
+		}
 
 		function game() {
+			let playerScore = 0
+			let computerScore = 0
+			let playerSelection
+			let computerSelection
+			let result
+			let finalResult
+			for (let i = 0; i < 5; i++) {
+				computerSelection = computerPlay()
+				playerSelection = prompt("Rock, paper or scissors?").toLowerCase()
+				// playerSelection = computerPlay()
+				if (isValidMove(playerSelection)) {
+					result = playRound(playerSelection, computerSelection)
+					if (result === "You won!") {
+						playerScore++
+					}
+					if (result === "You lose!") {
+						computerScore++
+					}
+					console.log(playerScore + " " + computerScore)
+				}
+			}
+			if (playerScore === computerScore) {
+				finalResult = "It's a draw"
+			}
+			if (playerScore > computerScore) {
+				finalResult = "You WIN"
+			}
+			if (playerScore < computerScore) {
+				finalResult = "You LOSE"
+			}
+			console.log(finalResult)
+
+
+
+
 			// calls the playRound function five times (to play the game 5 times),
 			// keeps track of the scores, and declares the winner/loser at the end.
 			// use console.log to display the results.
 			// use prompt() to get user input.
 			// write helper functions as necessary
 		}
+
+		game()
 	</script>
 </body>
 
